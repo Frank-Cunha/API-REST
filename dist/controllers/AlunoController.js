@@ -91,6 +91,7 @@ class AlunoController {
 
   async update(req, res) {
     try {
+      console.log(req.params);
       const { id } = req.params;
 
       if (!id) {
@@ -107,8 +108,9 @@ class AlunoController {
         });
       }
 
-      const alunoAtualizado = await aluno.update(req.body);
+      const alunoAtualizado = await _Aluno2.default.update(req.body);
 
+      console.log(alunoAtualizado);
       return res.json(alunoAtualizado);
     } catch (error) {
       return res.status(400).json({
